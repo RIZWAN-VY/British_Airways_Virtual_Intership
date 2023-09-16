@@ -25,3 +25,11 @@ for i in range(1, pages + 1):
     # Parse content
     content = response.content
     soup = BeautifulSoup(content, 'html.parser')
+
+
+# DATA COLLECTION :
+#----------------------------------------------------------
+
+    # Collecting all main Review
+    for item in soup.find_all("h2", {"class": "text_header"}):
+        review.append(item.get_text())
