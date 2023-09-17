@@ -33,3 +33,7 @@ for i in range(1, pages + 1):
     # Collecting all main Review
     for item in soup.find_all("h2", {"class": "text_header"}):
         review.append(item.get_text())
+
+    # Collecting all review text
+    for item in soup.find_all("div", {"class": "text_content"}):
+        review_text.append(item.get_text())
