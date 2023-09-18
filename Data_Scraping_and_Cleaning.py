@@ -43,3 +43,9 @@ for i in range(1, pages + 1):
         review_rating.append(item.get_text().strip())
         if len(review_rating) == 3000:
             break
+    
+    # Collection all recommendation
+    for item in soup.find_all("td", {"class": "review-value rating-yes"}):
+        recommend.append(item.get_text())    
+    for item in soup.find_all("td", {"class": "review-value rating-no"}):
+        recommend.append(item.get_text())
