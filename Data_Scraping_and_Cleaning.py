@@ -1,6 +1,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 base_url = "https://www.airlinequality.com/airline-reviews/british-airways"
@@ -49,3 +50,11 @@ for i in range(1, pages + 1):
         recommend.append(item.get_text())    
     for item in soup.find_all("td", {"class": "review-value rating-no"}):
         recommend.append(item.get_text())
+
+# DATA CLEANING :
+#----------------------------------------------------------
+
+def clean_reviewtext(text):
+    cleaned_text = re.sub(r'✅ Trip Verified |  +|Not Verified +| +|^\s+|\s+$',' ', text)
+    cleaned_text = cleaned_text.lower()
+    return cleaned_text
