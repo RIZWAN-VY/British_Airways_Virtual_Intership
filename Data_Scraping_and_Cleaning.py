@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import pandas as pd
 
 
 base_url = "https://www.airlinequality.com/airline-reviews/british-airways"
@@ -58,3 +59,16 @@ def clean_reviewtext(text):
     cleaned_text = re.sub(r'✅ Trip Verified |  +|Not Verified +| +|^\s+|\s+$',' ', text)
     cleaned_text = cleaned_text.lower()
     return cleaned_text
+
+#----------------------------------------------------------
+
+# Creating a Dataframe for storing the collected data
+df = pd.DataFrame()
+
+df["review"] = review
+
+df["review_text"] = review_text
+
+df["review_rating"] = review_rating
+
+df["RECOMMENDED"] = recommend
