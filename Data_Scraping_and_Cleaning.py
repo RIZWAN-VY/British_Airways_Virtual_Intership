@@ -37,3 +37,9 @@ for i in range(1, pages + 1):
     # Collecting all review text
     for item in soup.find_all("div", {"class": "text_content"}):
         review_text.append(item.get_text())
+
+    # Collecting all review rating
+    for item in soup.find_all("span", {"itemprop":"ratingValue"}):
+        review_rating.append(item.get_text().strip())
+        if len(review_rating) == 3000:
+            break
