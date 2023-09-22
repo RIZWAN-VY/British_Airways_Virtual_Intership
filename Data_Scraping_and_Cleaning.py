@@ -81,3 +81,6 @@ df['REVIEW_RATING'] = df['review_rating'].astype(int)
 # Apply the cleaning function to the 'review_text' and 'reviews' column
 df['review_text'] = df['review_text'].apply(clean_reviewtext)
 df['review'] = df['review'].apply(clean_reviewtext)
+
+# joining two review column to a single column
+df['REVIEW_TEXT'] = df['review'] + ' ' + df['review_text']
