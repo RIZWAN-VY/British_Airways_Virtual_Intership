@@ -72,3 +72,8 @@ df["review_text"] = review_text
 df["review_rating"] = review_rating
 
 df["RECOMMENDED"] = recommend
+
+#----------------------------------------------------------
+
+# Convert review_rating to int
+df['REVIEW_RATING'] = df['review_rating'].astype(int)
