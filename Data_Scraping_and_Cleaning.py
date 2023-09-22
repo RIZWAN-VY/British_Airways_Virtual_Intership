@@ -77,3 +77,7 @@ df["RECOMMENDED"] = recommend
 
 # Convert review_rating to int
 df['REVIEW_RATING'] = df['review_rating'].astype(int)
+
+# Apply the cleaning function to the 'review_text' and 'reviews' column
+df['review_text'] = df['review_text'].apply(clean_reviewtext)
+df['review'] = df['review'].apply(clean_reviewtext)
