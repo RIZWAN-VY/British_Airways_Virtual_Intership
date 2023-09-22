@@ -84,3 +84,6 @@ df['review'] = df['review'].apply(clean_reviewtext)
 
 # joining two review column to a single column
 df['REVIEW_TEXT'] = df['review'] + ' ' + df['review_text']
+
+# Droping the columns
+df = df.drop(columns=['review','review_text','review_rating'])
