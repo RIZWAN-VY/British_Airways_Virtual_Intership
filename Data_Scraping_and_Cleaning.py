@@ -87,3 +87,6 @@ df['REVIEW_TEXT'] = df['review'] + ' ' + df['review_text']
 
 # Droping the columns
 df = df.drop(columns=['review','review_text','review_rating'])
+
+# saving the Scrapped data
+df.to_csv("BA_reviews.csv")
