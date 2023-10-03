@@ -1,9 +1,7 @@
-
 import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
-
 
 base_url = "https://www.airlinequality.com/airline-reviews/british-airways"
 pages = 30
@@ -28,10 +26,8 @@ for i in range(1, pages + 1):
     content = response.content
     soup = BeautifulSoup(content, 'html.parser')
 
-
 # DATA COLLECTION :
 #----------------------------------------------------------
-
     # Collecting all main Review
     for item in soup.find_all("h2", {"class": "text_header"}):
         review.append(item.get_text())
@@ -54,27 +50,21 @@ for i in range(1, pages + 1):
 
 # DATA CLEANING :
 #----------------------------------------------------------
-
 def clean_reviewtext(text):
     cleaned_text = re.sub(r'✅ Trip Verified |  +|Not Verified +| +|^\s+|\s+$',' ', text)
     cleaned_text = cleaned_text.lower()
     return cleaned_text
 
-#----------------------------------------------------------
-
 # Creating a Dataframe for storing the collected data
+#----------------------------------------------------------
 df = pd.DataFrame()
 
 df["review"] = review
-
 df["review_text"] = review_text
-
 df["review_rating"] = review_rating
-
 df["RECOMMENDED"] = recommend
 
 #----------------------------------------------------------
-
 # Convert review_rating to int
 df['REVIEW_RATING'] = df['review_rating'].astype(int)
 
