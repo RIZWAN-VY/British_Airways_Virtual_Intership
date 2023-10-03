@@ -1,3 +1,4 @@
+# Libraries :
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -64,19 +65,14 @@ df["review_text"] = review_text
 df["review_rating"] = review_rating
 df["RECOMMENDED"] = recommend
 
-#----------------------------------------------------------
-# Convert review_rating to int
-df['REVIEW_RATING'] = df['review_rating'].astype(int)
+df['REVIEW_RATING'] = df['review_rating'].astype(int)   # Convert review_rating to int
 
 # Apply the cleaning function to the 'review_text' and 'reviews' column
 df['review_text'] = df['review_text'].apply(clean_reviewtext)
 df['review'] = df['review'].apply(clean_reviewtext)
 
-# joining two review column to a single column
-df['REVIEW_TEXT'] = df['review'] + ' ' + df['review_text']
+df['REVIEW_TEXT'] = df['review'] + ' ' + df['review_text']  # joining two review column to a single column
 
-# Droping the columns
-df = df.drop(columns=['review','review_text','review_rating'])
+df = df.drop(columns=['review','review_text','review_rating'])  # Droping the columns
 
-# saving the Scrapped data
-df.to_csv("BA_reviews.csv")
+df.to_csv("BA_reviews.csv") # saving the Scrapped data
