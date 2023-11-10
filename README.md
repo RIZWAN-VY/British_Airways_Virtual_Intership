@@ -39,7 +39,12 @@ __Data Visualization:__ Visualize the sentiment distribution, review ratings, an
     62.33%(1870) of customers would not recommend British Airways to others
 
   
-## British Airways Customers Review - Insight Report  
+# British Airways Customers Review - Insight Report  
+  
 ![Report](https://github.com/RIZWAN-VY/British_Airways_Virtual_Intership/assets/131337205/c36ed538-c1ad-44a3-8a7b-eefec8de07fb)
 
+
+ # Certificate  
+  
+ ![virtual_internship_certificate](https://github.com/RIZWAN-VY/British_Airways_Virtual_Intership/assets/131337205/08836440-1cc4-4fe0-8292-4678ad5588b2)
 
